@@ -85,6 +85,11 @@
             <artifactId>opentelemetry-exporter-otlp</artifactId>
             <version>1.43.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.opentelemetry.instrumentation</groupId>
+            <artifactId>opentelemetry-logback-mdc-1.0</artifactId>
+            <version>1.48.0-alpha</version>
+        </dependency>
 
 <!--        &lt;!&ndash; Integração com Micrometer para métricas &ndash;&gt;-->
 <!--        <dependency>-->

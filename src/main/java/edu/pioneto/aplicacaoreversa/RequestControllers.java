@@ -1,19 +1,19 @@
 package edu.pioneto.aplicacaoreversa;
 
-import io.micrometer.observation.Observation;
 import io.opentelemetry.api.GlobalOpenTelemetry;
 import io.opentelemetry.api.trace.Span;
-import io.opentelemetry.api.trace.SpanBuilder;
 import io.opentelemetry.api.trace.StatusCode;
 import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.context.Context;
 import io.opentelemetry.context.Scope;
 import io.opentelemetry.context.propagation.TextMapGetter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.net.URI;
-import java.net.http.HttpHeaders;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,12 +25,11 @@ public class RequestControllers {
     private final WebClient webClient;
     private final Tracer tracer;
 
-    private Tracer tracer2 = GlobalOpenTelemetry.getTracer("RequestControllers");
+    Logger logger = LoggerFactory.getLogger("RequestController");
 
     public RequestControllers(PersonRepository personRepository,
                               WebClient webClient,
-                              Tracer tracer
-    ) {
+                              Tracer tracer) {
         this.personRepository = personRepository;
         this.webClient = webClient;
         this.tracer = tracer;
@@ -55,8 +54,9 @@ public class RequestControllers {
             personEntity.setName(newPersonDto.name());
             personEntity.setSurname(newPersonDto.surname());
             personEntity.setAge(newPersonDto.age());
-
             personRepository.save(personEntity);
+            MDC.put("span_id", span.getSpanContext().getSpanId());
+            logger.info("Registro salvo com sucesso no banco H2");
             String response = "Registro criado com sucesso!";
 
 
@@ -98,6 +98,8 @@ public class RequestControllers {
 
         try (Scope scope = span.makeCurrent()) {
             Thread.sleep(2000);
+            MDC.put("span_id", span.getSpanContext().getSpanId());
+            logger.info("Consulta realizada na outra instancia do banco H2");
             return "Consulta extra";
         } catch (Exception e) {
             span.setStatus(StatusCode.ERROR);
