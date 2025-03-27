@@ -10,6 +10,9 @@ import io.opentelemetry.context.propagation.TextMapGetter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -36,9 +39,10 @@ public class RequestControllers {
     }
 
     @PostMapping("/criar-registro")
-    public String criarRegistro(@RequestHeader Map<String, String> headers,
+    public ResponseEntity<String> criarRegistro(@RequestHeader Map<String, String> headers,
                                 @RequestBody NewPersonDto newPersonDto,
-                                @RequestParam boolean replicar) {
+                                @RequestParam boolean replicar,
+                                @RequestParam boolean emitirException) {
 
         Context extractedContext = GlobalOpenTelemetry.getPropagators()
                 .getTextMapPropagator()
@@ -67,7 +71,7 @@ public class RequestControllers {
                     .inject(context, headersMap, (carrier, key, value) -> carrier.put(key, value));
 
             String resp = webClient.get()
-                    .uri(URI.create("http://localhost:8081/inicio/consulta-extra"))
+                    .uri(URI.create(String.format("http://localhost:8081/inicio/consulta-extra?emitirException=%s", emitirException)))
                     .headers(httpHeaders -> headersMap.forEach(httpHeaders::set))
                     .retrieve()
                     .bodyToMono(String.class)
@@ -75,18 +79,19 @@ public class RequestControllers {
 
             response += resp;
 
-            return response;
+            return new ResponseEntity<>("Registro criado com sucesso!", HttpStatus.OK);
         } catch (Exception e) {
             span.setStatus(StatusCode.ERROR);
             span.recordException(e);
-            return e.getMessage();
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         } finally {
             span.end();
         }
     }
 
     @GetMapping("/consulta-extra")
-    public String consultaExtra(@RequestHeader Map<String, String> headers) {
+    public ResponseEntity<String> consultaExtra(@RequestHeader Map<String, String> headers,
+                                        @RequestParam boolean emitirException) {
 
         Context extractedContext = GlobalOpenTelemetry.getPropagators()
                 .getTextMapPropagator()
@@ -100,11 +105,18 @@ public class RequestControllers {
             Thread.sleep(2000);
             MDC.put("span_id", span.getSpanContext().getSpanId());
             logger.info("Consulta realizada na outra instancia do banco H2");
-            return "Consulta extra";
+
+            if (emitirException){
+                throw new Exception("Teste de erro");
+            }
+
+
+            return new ResponseEntity<>("Consulta extra OK", HttpStatus.OK);
         } catch (Exception e) {
             span.setStatus(StatusCode.ERROR);
             span.recordException(e);
-            return e.getMessage();
+            logger.error(e.getMessage());
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         } finally {
             span.end();
         }

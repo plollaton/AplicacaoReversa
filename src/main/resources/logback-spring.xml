@@ -1,7 +1,8 @@
 <configuration>
 
     <!-- Formato do log com trace ID -->
-    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} [%X{span_id}] - %msg%n"/>
+    <springProperty name="appName" source="spring.application.name" default="ddd"/>
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} [%X{span_id}] [${appName}] - %msg%n"/>
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
