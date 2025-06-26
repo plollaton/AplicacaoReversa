@@ -21864,3 +21864,69 @@ Caused by: java.net.ConnectException: Connection refused: getsockopt
 2025-03-20 17:21:54 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean [] - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-03-20 17:21:54 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] - HikariPool-1 - Shutdown initiated...
 2025-03-20 17:21:54 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource [] - HikariPool-1 - Shutdown completed.
+2025-06-25 21:07:19 [main] INFO  e.p.a.AplicacaoReversaApplication [] [AplicacaoCliente] - Starting AplicacaoReversaApplication using Java 21.0.5 with PID 15940 (D:\Estudos\AplicacaoReversa\target\classes started by Vanessa in D:\Estudos\AplicacaoReversa)
+2025-06-25 21:07:19 [main] INFO  e.p.a.AplicacaoReversaApplication [] [AplicacaoCliente] - No active profile set, falling back to 1 default profile: "default"
+2025-06-25 21:07:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate [] [AplicacaoCliente] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-25 21:07:21 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate [] [AplicacaoCliente] - Finished Spring Data repository scanning in 237 ms. Found 1 JPA repository interface.
+2025-06-25 21:07:22 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer [] [AplicacaoCliente] - Tomcat initialized with port 8080 (http)
+2025-06-25 21:07:22 [main] INFO  o.a.coyote.http11.Http11NioProtocol [] [AplicacaoCliente] - Initializing ProtocolHandler ["http-nio-8080"]
+2025-06-25 21:07:22 [main] INFO  o.a.catalina.core.StandardService [] [AplicacaoCliente] - Starting service [Tomcat]
+2025-06-25 21:07:22 [main] INFO  o.a.catalina.core.StandardEngine [] [AplicacaoCliente] - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-06-25 21:07:22 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [] [AplicacaoCliente] - Initializing Spring embedded WebApplicationContext
+2025-06-25 21:07:22 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext [] [AplicacaoCliente] - Root WebApplicationContext: initialization completed in 2808 ms
+2025-06-25 21:07:22 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [AplicacaoCliente] - HikariPool-1 - Starting...
+2025-06-25 21:07:23 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [AplicacaoCliente] - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-06-25 21:07:23 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [AplicacaoCliente] - HikariPool-1 - Start completed.
+2025-06-25 21:07:23 [main] INFO  o.h.jpa.internal.util.LogHelper [] [AplicacaoCliente] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-25 21:07:23 [main] INFO  org.hibernate.Version [] [AplicacaoCliente] - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-06-25 21:07:23 [main] INFO  o.h.c.i.RegionFactoryInitiator [] [AplicacaoCliente] - HHH000026: Second-level cache disabled
+2025-06-25 21:07:23 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo [] [AplicacaoCliente] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-25 21:07:23 [main] WARN  org.hibernate.orm.deprecation [] [AplicacaoCliente] - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-25 21:07:23 [main] INFO  o.hibernate.orm.connections.pooling [] [AplicacaoCliente] - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-25 21:07:24 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator [] [AplicacaoCliente] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-25 21:07:24 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean [] [AplicacaoCliente] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-25 21:07:25 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [AplicacaoCliente] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-25 21:07:26 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver [] [AplicacaoCliente] - Exposing 1 endpoint beneath base path '/actuator'
+2025-06-25 21:07:26 [main] INFO  o.a.coyote.http11.Http11NioProtocol [] [AplicacaoCliente] - Starting ProtocolHandler ["http-nio-8080"]
+2025-06-25 21:07:26 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer [] [AplicacaoCliente] - Tomcat started on port 8080 (http) with context path '/'
+2025-06-25 21:07:26 [main] INFO  e.p.a.AplicacaoReversaApplication [] [AplicacaoCliente] - Started AplicacaoReversaApplication in 8.298 seconds (process running for 8.984)
+2025-06-25 22:34:22 [main] INFO  e.p.a.AplicacaoReversaApplication [] [AplicacaoCliente] - Starting AplicacaoReversaApplication using Java 21.0.5 with PID 10768 (D:\Estudos\AplicacaoReversa\target\classes started by Vanessa in D:\Estudos\AplicacaoReversa)
+2025-06-25 22:34:22 [main] INFO  e.p.a.AplicacaoReversaApplication [] [AplicacaoCliente] - No active profile set, falling back to 1 default profile: "default"
+2025-06-25 22:34:23 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate [] [AplicacaoCliente] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-25 22:34:23 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate [] [AplicacaoCliente] - Finished Spring Data repository scanning in 243 ms. Found 1 JPA repository interface.
+2025-06-25 22:34:25 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer [] [AplicacaoCliente] - Tomcat initialized with port 8080 (http)
+2025-06-25 22:34:25 [main] INFO  o.a.coyote.http11.Http11NioProtocol [] [AplicacaoCliente] - Initializing ProtocolHandler ["http-nio-8080"]
+2025-06-25 22:34:25 [main] INFO  o.a.catalina.core.StandardService [] [AplicacaoCliente] - Starting service [Tomcat]
+2025-06-25 22:34:25 [main] INFO  o.a.catalina.core.StandardEngine [] [AplicacaoCliente] - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-06-25 22:34:25 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [] [AplicacaoCliente] - Initializing Spring embedded WebApplicationContext
+2025-06-25 22:34:25 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext [] [AplicacaoCliente] - Root WebApplicationContext: initialization completed in 3137 ms
+2025-06-25 22:34:25 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [AplicacaoCliente] - HikariPool-1 - Starting...
+2025-06-25 22:34:26 [main] INFO  com.zaxxer.hikari.pool.HikariPool [] [AplicacaoCliente] - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-06-25 22:34:26 [main] INFO  com.zaxxer.hikari.HikariDataSource [] [AplicacaoCliente] - HikariPool-1 - Start completed.
+2025-06-25 22:34:26 [main] INFO  o.h.jpa.internal.util.LogHelper [] [AplicacaoCliente] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-25 22:34:26 [main] INFO  org.hibernate.Version [] [AplicacaoCliente] - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-06-25 22:34:26 [main] INFO  o.h.c.i.RegionFactoryInitiator [] [AplicacaoCliente] - HHH000026: Second-level cache disabled
+2025-06-25 22:34:26 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo [] [AplicacaoCliente] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-25 22:34:26 [main] WARN  org.hibernate.orm.deprecation [] [AplicacaoCliente] - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-25 22:34:27 [main] INFO  o.hibernate.orm.connections.pooling [] [AplicacaoCliente] - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-25 22:34:28 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator [] [AplicacaoCliente] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-25 22:34:28 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean [] [AplicacaoCliente] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-25 22:34:29 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] [AplicacaoCliente] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-25 22:34:30 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver [] [AplicacaoCliente] - Exposing 1 endpoint beneath base path '/actuator'
+2025-06-25 22:34:30 [main] INFO  o.a.coyote.http11.Http11NioProtocol [] [AplicacaoCliente] - Starting ProtocolHandler ["http-nio-8080"]
+2025-06-25 22:34:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer [] [AplicacaoCliente] - Tomcat started on port 8080 (http) with context path '/'
+2025-06-25 22:34:30 [main] INFO  e.p.a.AplicacaoReversaApplication [] [AplicacaoCliente] - Started AplicacaoReversaApplication in 9.701 seconds (process running for 10.513)

@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: testeotel
+
+#otel:
+##  otlp:
+#  span:
+#    exporter: DummyExporter
+#  logs:
+#    exporter: none
+#  metrics:
+#    exporter: none

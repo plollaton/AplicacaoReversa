@@ -38,6 +38,12 @@ public class RequestControllers {
         this.tracer = tracer;
     }
 
+    @GetMapping("/teste-span")
+    public ResponseEntity<String> testeSpan(){
+
+        return new ResponseEntity<>("Registro criado com sucesso!", HttpStatus.OK);
+    }
+
     @PostMapping("/criar-registro")
     public ResponseEntity<String> criarRegistro(@RequestHeader Map<String, String> headers,
                                 @RequestBody NewPersonDto newPersonDto,
